@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>個人網站</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        nav {
+            background-color: #444;
+            padding: 1em;
+            width: 200px;
+            position: fixed;
+            top: 60px;
+            bottom: 0;
+        }
+        nav a {
+            display: block;
+            color: #fff;
+            margin: 1em 0;
+            text-decoration: none;
+        }
+        main {
+            margin-top: 60px;
+            margin-left: 220px;
+            padding: 2em;
+            width: calc(100% - 220px);
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+        .contact-form label {
+            display: block;
+            margin: 0.5em 0 0.2em;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 0.5em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 0.7em 1.5em;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>歡迎來到我的個人網站</h1>
+    </header>
+    <nav>
+        <a href="#home" onclick="showContent('home')">首頁</a>
+        <a href="#study" onclick="showContent('study')">學習紀錄</a>
+        <a href="#life" onclick="showContent('life')">生活紀錄</a>
+        <a href="#contact" onclick="showContent('contact')">聯絡我</a>
+    </nav>
+    <main>
+        <section id="home" class="content active">
+            <h2>首頁</h2>
+            <p>這是一個記錄我學習和生活的網站。歡迎瀏覽！</p>
+        </section>
+        <section id="study" class="content">
+            <h2>學習紀錄</h2>
+            <p>這裡會記錄我各種學習的筆記和心得。</p>
+            <!-- 你可以在這裡加入更多學習的內容 -->
+        </section>
+        <section id="life" class="content">
+            <h2>生活紀錄</h2>
+            <p>這裡會記錄我的生活點滴和重要事件。</p>
+            <!-- 你可以在這裡加入更多生活的內容 -->
+        </section>
+        <section id="contact" class="content">
+            <h2>聯絡我</h2>
+            <div class="contact-form">
+                <form>
+                    <label for="name">姓名：</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">電子郵件：</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="message">訊息：</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                    <button type="submit">送出</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>版權所有 &copy; 2024 我的個人網站</p>
+    </footer>
+    <script>
+        function showContent(id) {
+            var sections = document.querySelectorAll('.content');
+            sections.forEach(function(section) {
+                section.classList.remove('active');
+            });
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
